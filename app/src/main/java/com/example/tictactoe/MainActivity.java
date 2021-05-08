@@ -87,6 +87,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         else{
             activePlayer=!activePlayer;
         }
+        if(playerOneScoreCount>playerTwoScoreCount){
+            playerStatus.setText("Player one is Winning!");
+        }
+        else if(playerTwoScoreCount>playerOneScoreCount){
+            playerStatus.setText("Player Two is Winning!");
+        }
+        else{
+            playerStatus.setText("");
+        }
+        resetGame.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                playAgain();
+                playerOneScoreCount=0;
+                playerTwoScoreCount=0;
+                playerStatus.setText("");
+                updatePlayerScore();
+            }
+        });
     }
     public boolean checkWinner(){
         boolean winnerResult = false;
