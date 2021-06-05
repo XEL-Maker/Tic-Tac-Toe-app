@@ -70,11 +70,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         roundCount++;
         if(checkWinner()){
+            allButton(false);
             if(activePlayer){
                 playerOneScoreCount++;
                 updatePlayerScore();
                 Toast.makeText(this,"Player One Won!", Toast.LENGTH_SHORT).show();
-                //playAgain();
+                //playAgain(); 기능 끔
             }else{
                 playerTwoScoreCount++;
                 updatePlayerScore();
@@ -131,6 +132,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         for(int i=0;i<buttons.length;i++){
             gameState[i]=2;
             buttons[i].setText("");
+        }
+        allButton(true);
+    }
+    public void allButton(boolean Lock){
+        for(int i=0;i<buttons.length;i++){
+            buttons[i].setEnabled(Lock);
         }
     }
 }
