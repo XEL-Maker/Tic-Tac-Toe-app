@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView playerOneScore, playerTwoScore,playerStatus;
     private Button [] buttons= new Button[9];
     private  Button resetGame;
+    private Button resetScore;
 
     private int playerOneScoreCount, playerTwoScoreCount, roundCount;
     boolean activePlayer;
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         playerStatus=(TextView)findViewById(R.id.playerStatus);
 
         resetGame=(Button)findViewById(R.id.resetGame);
-
+        resetScore=(Button)findViewById(R.id.resetScore);
         for(int i=0;i<buttons.length;i++){
             String btnID="btn_"+i;
             int resId=getResources().getIdentifier(btnID,"id",getPackageName());
@@ -65,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             gameState[gameStatePointer]=0;
         }else{
             ((Button)v).setText("O");
-            ((Button)v).setTextColor(Color.parseColor("#70FFEA"));
+            ((Button)v).setTextColor(Color.parseColor("#A3CCA3"));
             gameState[gameStatePointer]=1;
         }
         roundCount++;
@@ -101,12 +102,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View v) {
                 playAgain();
-                /*
+            }
+        });
+        resetScore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 playerOneScoreCount=0;
                 playerTwoScoreCount=0;
                 playerStatus.setText("");
                 updatePlayerScore();
-                */
             }
         });
     }
