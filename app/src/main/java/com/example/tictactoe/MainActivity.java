@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         playerTwoScore=(TextView)findViewById(R.id.playerTwoScore);
         playerStatus=(TextView)findViewById(R.id.playerStatus);
 
-        resetGame=(Button)findViewById(R.id.resetGane);
+        resetGame=(Button)findViewById(R.id.resetGame);
 
         for(int i=0;i<buttons.length;i++){
             String btnID="btn_"+i;
@@ -74,12 +74,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 playerOneScoreCount++;
                 updatePlayerScore();
                 Toast.makeText(this,"Player One Won!", Toast.LENGTH_SHORT).show();
-                playAgain();
+                //playAgain();
             }else{
                 playerTwoScoreCount++;
                 updatePlayerScore();
                 Toast.makeText(this,"Player Two Won!", Toast.LENGTH_SHORT).show();
-                playAgain();
+                //playAgain();
             }
         }else if(roundCount==9){
             Toast.makeText(this,"No Winner!", Toast.LENGTH_SHORT).show();
@@ -100,10 +100,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View v) {
                 playAgain();
+                /*
                 playerOneScoreCount=0;
                 playerTwoScoreCount=0;
                 playerStatus.setText("");
                 updatePlayerScore();
+                */
             }
         });
     }
