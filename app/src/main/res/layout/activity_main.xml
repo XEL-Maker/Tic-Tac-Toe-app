@@ -160,7 +160,7 @@
     <Button
         android:id="@+id/resetGame"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:text="Reset Game"
         android:textColor="#ffffff"
         android:backgroundTint="#E1470D"
@@ -173,12 +173,25 @@
     <Button
         android:id="@+id/resetScore"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:text="Reset Score"
         android:textColor="#ffffff"
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/resetGame"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+    <Button
+        android:id="@+id/exit"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="EXIT GAME"
+        android:textColor="#ffffff"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:backgroundTint="#E1470D"
+        app:layout_constraintTop_toBottomOf="@id/resetScore"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         />
