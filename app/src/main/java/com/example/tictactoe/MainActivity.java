@@ -1,7 +1,9 @@
 package com.example.tictactoe;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,6 +19,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button [] buttons= new Button[9];
     private  Button resetGame;
     private Button resetScore;
+    private Button exit;
 
     private int playerOneScoreCount, playerTwoScoreCount, roundCount;
     boolean activePlayer;
@@ -40,6 +43,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         resetGame=(Button)findViewById(R.id.resetGame);
         resetScore=(Button)findViewById(R.id.resetScore);
+        exit=(Button)findViewById(R.id.exit);
+        exit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder= new AlertDialog.Builder(MainActivity.this);
+                builder.setMessage("Want to exit GAME?");
+                builder.setTitle("Exit")
+                        .setCancelable(false)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                finish();
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        });
+                AlertDialog alert=builder.create();
+                alert.setTitle("Exit");
+                alert.show();
+            }
+        });
         for(int i=0;i<buttons.length;i++){
             String btnID="btn_"+i;
             int resId=getResources().getIdentifier(btnID,"id",getPackageName());
