@@ -113,6 +113,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }else if(roundCount==9){
             Toast.makeText(this,"No Winner!", Toast.LENGTH_SHORT).show();
+            allButton(false);
         }
         else{
             activePlayer=!activePlayer;
